@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import Link from 'next/link';
+import Navbar from '@/components/Navbar';
 
 const ContactPage = () => {
   const heroRef = useRef(null);
@@ -115,22 +116,7 @@ const ContactPage = () => {
   return (
     <div ref={heroRef} className="min-h-screen bg-black text-white">
       {/* Navbar */}
-      <nav className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-purple-900/30">
-        <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="flex justify-between items-center">
-            <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
-              Luigi Balestrucci
-            </Link>
-            <div className="hidden md:flex gap-8">
-              <Link href="/" className="hover:text-purple-400 transition-colors">Home</Link>
-              <Link href="/about" className="hover:text-purple-400 transition-colors">About</Link>
-              <Link href="/skills" className="hover:text-purple-400 transition-colors">Skills</Link>
-              <Link href="/projects" className="hover:text-purple-400 transition-colors">Projects</Link>
-              <Link href="/contact" className="text-purple-400">Contact</Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Navbar currentPage="contact" />
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6 relative overflow-hidden">

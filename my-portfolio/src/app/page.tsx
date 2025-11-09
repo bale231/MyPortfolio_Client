@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Link from 'next/link';
+import Navbar from '@/components/Navbar';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -174,27 +175,7 @@ const PortfolioHomepage = () => {
         }
       `}</style>
       {/* Navbar */}
-      <nav className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-purple-900/30">
-        <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="flex justify-between items-center">
-            <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
-              Luigi Balestrucci
-            </Link>
-            <div className="hidden md:flex gap-8">
-              <Link href="/" className="text-purple-400 transition-colors">Home</Link>
-              <Link href="/about" className="hover:text-purple-400 transition-colors">About</Link>
-              <Link href="/skills" className="hover:text-purple-400 transition-colors">Skills</Link>
-              <Link href="/projects" className="hover:text-purple-400 transition-colors">Projects</Link>
-              <Link href="/contact" className="hover:text-purple-400 transition-colors">Contact</Link>
-            </div>
-            <button className="md:hidden text-purple-400">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
-        </div>
-      </nav>
+      <Navbar currentPage="home" />
 
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
