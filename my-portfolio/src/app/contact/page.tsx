@@ -79,7 +79,7 @@ const ContactPage = () => {
         setStatus('error');
         setErrorMessage(data.error || 'Si è verificato un errore. Riprova più tardi.');
       }
-    } catch (error) {
+    } catch {
       setStatus('error');
       setErrorMessage('Errore di connessione. Controlla la tua connessione internet.');
     }
