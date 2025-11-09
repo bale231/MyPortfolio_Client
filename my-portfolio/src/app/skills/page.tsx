@@ -221,7 +221,7 @@ const SkillsPage = () => {
               <ul className="space-y-2 text-gray-400">
                 <li className="flex items-center gap-2">
                   <span className="text-purple-400">•</span>
-                  Udemy, Coursera, Pluralsight
+                  Udemy, Codegrind, Develhope
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="text-purple-400">•</span>
@@ -248,11 +248,11 @@ const SkillsPage = () => {
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="text-purple-400">•</span>
-                  AI Integration & Automation
+                  Web App Development PWA(Progressive Web Apps)
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="text-purple-400">•</span>
-                  Cloud Architecture & DevOps
+                  AI Integration & Automation
                 </li>
               </ul>
             </div>
