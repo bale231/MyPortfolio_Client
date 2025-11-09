@@ -3,15 +3,16 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Link from 'next/link';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const PortfolioHomepage = () => {
-  const heroRef = useRef(null);
-  const titleRef = useRef(null);
-  const subtitleRef = useRef(null);
-  const ctaRef = useRef(null);
-  const cardsContainerRef = useRef(null);
+  const heroRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const subtitleRef = useRef<HTMLParagraphElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
+  const cardsContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -176,15 +177,15 @@ const PortfolioHomepage = () => {
       <nav className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-purple-900/30">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
-            <div className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
+            <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
               Luigi Balestrucci
-            </div>
+            </Link>
             <div className="hidden md:flex gap-8">
-              <a href="#home" className="hover:text-purple-400 transition-colors">Home</a>
-              <a href="#about" className="hover:text-purple-400 transition-colors">About</a>
-              <a href="#skills" className="hover:text-purple-400 transition-colors">Skills</a>
-              <a href="#projects" className="hover:text-purple-400 transition-colors">Projects</a>
-              <a href="#contact" className="hover:text-purple-400 transition-colors">Contact</a>
+              <Link href="/" className="text-purple-400 transition-colors">Home</Link>
+              <Link href="/about" className="hover:text-purple-400 transition-colors">About</Link>
+              <Link href="/skills" className="hover:text-purple-400 transition-colors">Skills</Link>
+              <Link href="/projects" className="hover:text-purple-400 transition-colors">Projects</Link>
+              <Link href="/contact" className="hover:text-purple-400 transition-colors">Contact</Link>
             </div>
             <button className="md:hidden text-purple-400">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -246,12 +247,12 @@ const PortfolioHomepage = () => {
               Full Stack Developer specializzato in tecnologie moderne e nell'utilizzo dell'AI
             </p>
             <div ref={ctaRef} className="flex gap-4 justify-center">
-              <button className="px-8 py-3 bg-purple-600 cursor-pointer hover:bg-purple-700 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg shadow-purple-500/30">
+              <Link href="/projects" className="px-8 py-3 bg-purple-600 cursor-pointer hover:bg-purple-700 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg shadow-purple-500/30">
                 Scopri i Progetti
-              </button>
-              <button className="px-8 py-3 border-2 cursor-pointer border-purple-600 hover:bg-purple-600/10 rounded-lg font-semibold transition-all">
+              </Link>
+              <Link href="/contact" className="px-8 py-3 border-2 cursor-pointer border-purple-600 hover:bg-purple-600/10 rounded-lg font-semibold transition-all">
                 Contattami
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -266,13 +267,14 @@ const PortfolioHomepage = () => {
           
           <div ref={cardsContainerRef} className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {sections.map((section, index) => (
-              <div
+              <Link
                 key={index}
-                className="preview-card group relative bg-gradient-to-br from-purple-950/50 to-black border border-purple-900/30 rounded-2xl p-6 hover:border-purple-500/50 transition-all duration-300 cursor-pointer overflow-hidden"
+                href={section.link}
+                className="preview-card group relative bg-gradient-to-br from-purple-950/50 to-black border border-purple-900/30 rounded-2xl p-6 hover:border-purple-500/50 transition-all duration-300 cursor-pointer overflow-hidden block"
               >
                 {/* Hover gradient effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-600/0 to-purple-600/0 group-hover:from-purple-600/10 group-hover:to-purple-800/10 transition-all duration-300"></div>
-                
+
                 <div className="relative z-10">
                   <div className="text-5xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
                     {section.icon}
@@ -290,7 +292,7 @@ const PortfolioHomepage = () => {
                     </svg>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
