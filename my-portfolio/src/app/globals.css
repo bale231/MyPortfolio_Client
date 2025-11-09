@@ -1,7 +1,7 @@
-@import "tailwindcss";
-
-/* Import font stile terminale da Google Fonts */
+/* Import font stile terminale da Google Fonts - DEVE essere prima di tutto */
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+@import "tailwindcss";
 
 :root {
   --background: #ffffff;
