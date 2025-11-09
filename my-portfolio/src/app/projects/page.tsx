@@ -43,12 +43,22 @@ const ProjectsPage = () => {
 
   const projects = [
     {
-      title: 'ToDoList WebApp',
+      title: 'ToDoList WebApp Frontend React/TypeScript',
       description: "WebApp TodoList creata completamente con l'AI ChatGPT e Claude Code come esperimento sulle potenzialità dell'utilizzo dell'AI.",
       image: '📝',
-      category: 'fullstack',
-      tags: ['React.js', 'TypeScript', 'Django', 'OpenAI', 'Claude Code', 'Gsap', 'Tailwind CSS'],
+      category: 'frontend',
+      tags: ['React.js', 'TypeScript', 'Django', 'OpenAI', 'Claude Code', 'Gsap', 'Tailwind CSS', 'Firebase', ],
       github: 'https://github.com/bale231/todowebapp-frontend-reactts',
+      demo: "https://todowebapp-frontend-reactts-stml.vercel.app/",
+      featured: true
+    },
+    {
+      title: 'ToDoList WebApp Backend Django',
+      description: "Backend di ToDoList creata completamente con l'AI ChatGPT e Claude Code come esperimento sulle potenzialità dell'utilizzo dell'AI.",
+      image: '📝',
+      category: 'backend',
+      tags: ['Django', 'OpenAI', 'Claude Code', 'MySQL', 'Social Auth Django', 'JWT', 'Django Rest-Framework', 'Google Auth'],
+      github: 'https://github.com/bale231/todowebappbackend-django',
       demo: "https://todowebapp-frontend-reactts-stml.vercel.app/",
       featured: true
     },
@@ -61,16 +71,6 @@ const ProjectsPage = () => {
       github: 'https://github.com/Mixout-App/Mixout-Server',
       demo: 'https://mixout.ai/auth/',
       featured: true
-    },
-    {
-      title: 'Task Management App',
-      description: 'Applicazione per la gestione di task e progetti con drag & drop, notifiche real-time e collaborazione.',
-      image: '✅',
-      category: 'frontend',
-      tags: ['React', 'Redux', 'Firebase', 'DnD Kit'],
-      github: 'https://github.com/bale231',
-      demo: '#',
-      featured: false
     },
     {
       title: 'Electronic Arts Cloning Project',
