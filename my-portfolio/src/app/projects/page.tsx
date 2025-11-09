@@ -43,23 +43,23 @@ const ProjectsPage = () => {
 
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      description: 'Piattaforma e-commerce completa con gestione prodotti, carrello, pagamenti Stripe e dashboard admin.',
-      image: '🛒',
+      title: 'ToDoList WebApp',
+      description: "WebApp TodoList creata completamente con l'AI ChatGPT e Claude Code come esperimento sulle potenzialità dell'utilizzo dell'AI.",
+      image: '📝',
       category: 'fullstack',
-      tags: ['Next.js', 'TypeScript', 'MongoDB', 'Stripe'],
-      github: 'https://github.com/bale231',
-      demo: '#',
+      tags: ['React.js', 'TypeScript', 'Django', 'OpenAI', 'Claude Code', 'Gsap', 'Tailwind CSS'],
+      github: 'https://github.com/bale231/todowebapp-frontend-reactts',
+      demo: "https://todowebapp-frontend-reactts-stml.vercel.app/",
       featured: true
     },
     {
-      title: 'AI Chat Assistant',
-      description: 'Assistente virtuale basato su GPT-4 con memoria conversazionale e integrazione con database vettoriale.',
-      image: '🤖',
-      category: 'ai',
-      tags: ['React', 'OpenAI', 'LangChain', 'Pinecone'],
-      github: 'https://github.com/bale231',
-      demo: '#',
+      title: 'Mixout Server',
+      description: 'Repo incentrata sul backend di Mixout, un app per la creazione di outfits personalizzati tramite riconoscimento AI-Scan.',
+      image: '👕',
+      category: 'backend',
+      tags: ['Docker', 'OpenAI', 'Claude Code', 'PostgreSQL', 'MongoDB', 'Django', 'Node.js'],
+      github: 'https://github.com/Mixout-App/Mixout-Server',
+      demo: 'https://mixout.ai/auth/',
       featured: true
     },
     {
@@ -73,22 +73,22 @@ const ProjectsPage = () => {
       featured: false
     },
     {
-      title: 'Weather Dashboard',
-      description: 'Dashboard meteo con previsioni dettagliate, grafici interattivi e geolocalizzazione.',
-      image: '🌤️',
+      title: 'Electronic Arts Cloning Project',
+      description: 'Progetto di clonazione della Homepage Electronic Arts per la scuola di informatica effettuata in team.',
+      image: '🎮',
       category: 'frontend',
-      tags: ['Next.js', 'Chart.js', 'OpenWeather API'],
-      github: 'https://github.com/bale231',
-      demo: '#',
+      tags: ['HTML', 'CSS', 'JavaScript'],
+      github: 'https://github.com/Francesca-Bonato/Electonic-Arts-clone-project',
+      demo: 'https://eaclone.netlify.app/',
       featured: false
     },
     {
-      title: 'Blog Platform',
-      description: 'Piattaforma di blogging con CMS headless, SEO optimization e commenti integrati.',
+      title: 'ByCycle Blog Platform',
+      description: 'Piattaforma di blogging per ciclisti come progetto finale della scuola di informatica.',
       image: '📝',
       category: 'fullstack',
-      tags: ['Next.js', 'Contentful', 'PostgreSQL'],
-      github: 'https://github.com/bale231',
+      tags: ['React.js', 'Tailwind CSS', 'Node.js', 'Express', 'MySQL', 'CSS', 'JavaScript', 'SCSS'],
+      github: 'https://github.com/Francesca-Bonato/ByCycle-project',
       demo: '#',
       featured: false
     },
@@ -103,24 +103,14 @@ const ProjectsPage = () => {
       featured: false
     },
     {
-      title: 'API Gateway',
-      description: 'Gateway API con rate limiting, caching, autenticazione JWT e monitoraggio.',
-      image: '🔌',
-      category: 'backend',
-      tags: ['Node.js', 'Express', 'Redis', 'JWT'],
-      github: 'https://github.com/bale231',
+      title: 'WebApp Musica Demo',
+      description: 'Progetto creato nel secondo colloquio tecnico con Spicy Sparks.',
+      image: '🎵',
+      category: 'frontend',
+      tags: ['React.js', 'Redux', 'React Router', 'Tailwind CSS', 'Lerna', 'JavaScript', 'CSS' ],
+      github: 'https://github.com/bale231/spicy-sparks-app',
       demo: '#',
       featured: false
-    },
-    {
-      title: 'Image Generator AI',
-      description: 'Generatore di immagini basato su AI con prompt engineering e editing avanzato.',
-      image: '🖼️',
-      category: 'ai',
-      tags: ['Python', 'Stable Diffusion', 'FastAPI'],
-      github: 'https://github.com/bale231',
-      demo: '#',
-      featured: true
     }
   ];
 
@@ -129,7 +119,6 @@ const ProjectsPage = () => {
     { id: 'fullstack', label: 'Full Stack', icon: '⚡' },
     { id: 'frontend', label: 'Frontend', icon: '🎨' },
     { id: 'backend', label: 'Backend', icon: '⚙️' },
-    { id: 'ai', label: 'AI Projects', icon: '🤖' }
   ];
 
   const filteredProjects = activeFilter === 'all'

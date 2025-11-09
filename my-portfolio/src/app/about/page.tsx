@@ -70,29 +70,24 @@ const AboutPage = () => {
 
   const timeline = [
     {
-      year: '2020',
+      year: '2022',
       title: 'Inizio del Percorso',
       description: 'Ho iniziato a programmare da autodidatta, esplorando HTML, CSS e JavaScript'
     },
     {
-      year: '2021',
-      title: 'Approfondimento Frontend',
-      description: 'Mi sono specializzato in React e ho iniziato a creare le mie prime applicazioni web'
+      year: '2023',
+      title: 'Iscrizione al corso di Full Stack Development in Develhope.',
+      description: 'Ho scelto di iscrivermi al corso per ampliare le mie competenze come sviluppatore web full stack.'
     },
     {
-      year: '2022',
+      year: '2024',
       title: 'Full Stack Development',
       description: 'Ho ampliato le mie competenze al backend con Node.js, Express e database'
     },
     {
-      year: '2023',
+      year: '2025',
       title: 'Tecnologie Moderne',
-      description: 'Adozione di Next.js, TypeScript e architetture cloud-native'
-    },
-    {
-      year: '2024',
-      title: 'AI & Innovazione',
-      description: 'Integrazione di AI e machine learning nei progetti, automazione e ottimizzazione'
+      description: 'Ho approfondito le tecnologie moderne come React, Next.js e TypeScript e ho implementato progetti reali anche con AI.'
     }
   ];
 

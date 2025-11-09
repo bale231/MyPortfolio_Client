@@ -62,13 +62,13 @@ const SkillsPage = () => {
       color: 'from-blue-500 to-cyan-500',
       skills: [
         { name: 'React', level: 90, icon: '⚛️' },
-        { name: 'Next.js', level: 85, icon: '▲' },
+        { name: 'React Router', level: 85, icon: '▲' },
+        { name: 'Redux', level: 75, icon: '🔄' },
         { name: 'TypeScript', level: 88, icon: '📘' },
         { name: 'JavaScript', level: 92, icon: '💛' },
         { name: 'TailwindCSS', level: 90, icon: '🎨' },
         { name: 'HTML/CSS', level: 95, icon: '🌐' },
-        { name: 'GSAP', level: 80, icon: '✨' },
-        { name: 'Redux', level: 75, icon: '🔄' }
+        { name: 'GSAP', level: 80, icon: '✨' }
       ]
     },
     {
@@ -76,12 +76,10 @@ const SkillsPage = () => {
       icon: '⚙️',
       color: 'from-green-500 to-emerald-500',
       skills: [
-        { name: 'Node.js', level: 85, icon: '🟢' },
-        { name: 'Express', level: 82, icon: '🚂' },
-        { name: 'PHP', level: 78, icon: '🐘' },
-        { name: 'Python', level: 75, icon: '🐍' },
+        { name: 'Node.js', level: 70, icon: '🟢' },
+        { name: 'Express', level: 70, icon: '🚂' },
+        { name: 'Python', level: 88, icon: '🐍' },
         { name: 'REST API', level: 88, icon: '🔌' },
-        { name: 'GraphQL', level: 70, icon: '🔺' }
       ]
     },
     {
@@ -89,26 +87,24 @@ const SkillsPage = () => {
       icon: '💾',
       color: 'from-purple-500 to-pink-500',
       skills: [
-        { name: 'MongoDB', level: 82, icon: '🍃' },
         { name: 'PostgreSQL', level: 80, icon: '🐘' },
         { name: 'MySQL', level: 78, icon: '🔶' },
         { name: 'Firebase', level: 75, icon: '🔥' },
-        { name: 'AWS', level: 70, icon: '☁️' },
         { name: 'Docker', level: 72, icon: '🐳' }
       ]
     },
-    {
-      title: 'AI & Machine Learning',
-      icon: '🤖',
-      color: 'from-orange-500 to-red-500',
-      skills: [
-        { name: 'OpenAI API', level: 85, icon: '🧠' },
-        { name: 'LangChain', level: 75, icon: '⛓️' },
-        { name: 'Prompt Engineering', level: 88, icon: '💭' },
-        { name: 'AI Integration', level: 82, icon: '🔮' },
-        { name: 'TensorFlow', level: 65, icon: '📊' }
-      ]
-    },
+    // {
+    //   title: 'AI & Machine Learning',
+    //   icon: '🤖',
+    //   color: 'from-orange-500 to-red-500',
+    //   skills: [
+    //     { name: 'OpenAI API', level: 85, icon: '🧠' },
+    //     { name: 'LangChain', level: 75, icon: '⛓️' },
+    //     { name: 'Prompt Engineering', level: 88, icon: '💭' },
+    //     { name: 'AI Integration', level: 82, icon: '🔮' },
+    //     { name: 'TensorFlow', level: 65, icon: '📊' }
+    //   ]
+    // },
     {
       title: 'Tools & Other',
       icon: '🛠️',
@@ -117,9 +113,8 @@ const SkillsPage = () => {
         { name: 'Git', level: 90, icon: '📦' },
         { name: 'GitHub', level: 88, icon: '🐙' },
         { name: 'VS Code', level: 95, icon: '💻' },
-        { name: 'Figma', level: 75, icon: '🎨' },
         { name: 'Postman', level: 85, icon: '📬' },
-        { name: 'Linux', level: 78, icon: '🐧' }
+        { name: 'Linux', level: 48, icon: '🐧' }
       ]
     }
   ];
