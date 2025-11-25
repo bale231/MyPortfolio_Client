@@ -79,7 +79,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage = 'home' }) => {
         {/* Mobile Menu Dropdown */}
         <div
           className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-            isMenuOpen ? 'max-h-64 opacity-100 mt-4' : 'max-h-0 opacity-0'
+            isMenuOpen ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'
           }`}
         >
           <div className="flex flex-col gap-4 py-4 border-t border-purple-900/30">
