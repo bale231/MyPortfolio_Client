@@ -5,6 +5,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
+import { projects } from '@/data/projects';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -41,79 +42,6 @@ const ProjectsPage = () => {
 
     return () => ctx.revert();
   }, [activeFilter]);
-
-  const projects = [
-    {
-      title: 'ToDoList WebApp Frontend React/TypeScript',
-      description: "WebApp TodoList creata completamente con l'AI ChatGPT e Claude Code come esperimento sulle potenzialità dell'utilizzo dell'AI.",
-      image: '📝',
-      category: 'frontend',
-      tags: ['React.js', 'TypeScript', 'Django', 'OpenAI', 'Claude Code', 'Gsap', 'Tailwind CSS', 'Firebase', ],
-      github: 'https://github.com/bale231/todowebapp-frontend-reactts',
-      demo: "https://todowebapp-frontend-reactts-stml.vercel.app/",
-      featured: true
-    },
-    {
-      title: 'ToDoList WebApp Backend Django',
-      description: "Backend di ToDoList creata completamente con l'AI ChatGPT e Claude Code come esperimento sulle potenzialità dell'utilizzo dell'AI.",
-      image: '📝',
-      category: 'backend',
-      tags: ['Django', 'OpenAI', 'Claude Code', 'MySQL', 'Social Auth Django', 'JWT', 'Django Rest-Framework', 'Google Auth'],
-      github: 'https://github.com/bale231/todowebappbackend-django',
-      demo: "https://todowebapp-frontend-reactts-stml.vercel.app/",
-      featured: true
-    },
-    {
-      title: 'Mixout Server',
-      description: 'Repo incentrata sul backend di Mixout, un app per la creazione di outfits personalizzati tramite riconoscimento AI-Scan.',
-      image: '👕',
-      category: 'backend',
-      tags: ['Docker', 'OpenAI', 'Claude Code', 'PostgreSQL', 'MongoDB', 'Django', 'Node.js'],
-      github: 'https://github.com/Mixout-App/Mixout-Server',
-      demo: 'https://mixout.ai/auth/',
-      featured: true
-    },
-    {
-      title: 'Electronic Arts Cloning Project',
-      description: 'Progetto di clonazione della Homepage Electronic Arts per la scuola di informatica effettuata in team.',
-      image: '🎮',
-      category: 'frontend',
-      tags: ['HTML', 'CSS', 'JavaScript'],
-      github: 'https://github.com/Francesca-Bonato/Electonic-Arts-clone-project',
-      demo: 'https://eaclone.netlify.app/',
-      featured: false
-    },
-    {
-      title: 'ByCycle Blog Platform',
-      description: 'Piattaforma di blogging per ciclisti come progetto finale della scuola di informatica.',
-      image: '📝',
-      category: 'fullstack',
-      tags: ['React.js', 'Tailwind CSS', 'Node.js', 'Express', 'MySQL', 'CSS', 'JavaScript', 'SCSS'],
-      github: 'https://github.com/Francesca-Bonato/ByCycle-project',
-      demo: '#',
-      featured: false
-    },
-    {
-      title: 'Portfolio Generator',
-      description: 'Tool per generare portfolio automaticamente partendo da template personalizzabili.',
-      image: '🎨',
-      category: 'frontend',
-      tags: ['React', 'TailwindCSS', 'Vite'],
-      github: 'https://github.com/bale231',
-      demo: '#',
-      featured: false
-    },
-    {
-      title: 'WebApp Musica Demo',
-      description: 'Progetto creato nel secondo colloquio tecnico con Spicy Sparks.',
-      image: '🎵',
-      category: 'frontend',
-      tags: ['React.js', 'Redux', 'React Router', 'Tailwind CSS', 'Lerna', 'JavaScript', 'CSS' ],
-      github: 'https://github.com/bale231/spicy-sparks-app',
-      demo: '#',
-      featured: false
-    }
-  ];
 
   const filters = [
     { id: 'all', label: 'Tutti i Progetti', icon: '🎯' },
@@ -191,39 +119,53 @@ const ProjectsPage = () => {
                     </div>
                   )}
 
-                  {/* Image/Icon */}
-                  <div className="relative h-48 bg-gradient-to-br from-purple-900/40 to-black flex items-center justify-center text-8xl border-b border-purple-900/30">
-                    {project.image}
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-all"></div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-6">
-                    <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-purple-300 transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-gray-400 mb-4 line-clamp-2">
-                      {project.description}
-                    </p>
-
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.tags.map((tag, tagIndex) => (
-                        <span
-                          key={tagIndex}
-                          className="px-3 py-1 bg-purple-900/30 text-purple-300 rounded-full text-sm"
-                        >
-                          {tag}
-                        </span>
-                      ))}
+                  {/* Clickable Card Link */}
+                  <Link href={`/projects/${project.slug}`} className="block">
+                    {/* Image/Icon */}
+                    <div className="relative h-48 bg-gradient-to-br from-purple-900/40 to-black flex items-center justify-center text-8xl border-b border-purple-900/30">
+                      {project.image}
+                      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-all"></div>
                     </div>
 
-                    {/* Links */}
-                    <div className="flex gap-4">
+                    {/* Content */}
+                    <div className="p-6">
+                      <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-purple-300 transition-colors">
+                        {project.title}
+                      </h3>
+                      <p className="text-gray-400 mb-4 line-clamp-2">
+                        {project.shortDescription}
+                      </p>
+
+                      {/* Period */}
+                      <p className="text-sm text-purple-400 mb-3">{project.period}</p>
+
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {project.tags.slice(0, 4).map((tag, tagIndex) => (
+                          <span
+                            key={tagIndex}
+                            className="px-3 py-1 bg-purple-900/30 text-purple-300 rounded-full text-sm"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                        {project.tags.length > 4 && (
+                          <span className="px-3 py-1 bg-purple-900/30 text-purple-300 rounded-full text-sm">
+                            +{project.tags.length - 4}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  </Link>
+
+                  {/* Links */}
+                  <div className="px-6 pb-6 flex gap-4">
+                    {project.github !== '#' && (
                       <a
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
                         className="flex-1 px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg text-center transition-all flex items-center justify-center gap-2"
                       >
                         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -231,16 +173,17 @@ const ProjectsPage = () => {
                         </svg>
                         GitHub
                       </a>
-                      <a
-                        href={project.demo}
-                        className="flex-1 px-4 py-2 bg-purple-600 hover:bg-purple-700 rounded-lg text-center transition-all flex items-center justify-center gap-2"
-                      >
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                        </svg>
-                        Demo
-                      </a>
-                    </div>
+                    )}
+                    <Link
+                      href={`/projects/${project.slug}`}
+                      className="flex-1 px-4 py-2 bg-purple-600 hover:bg-purple-700 rounded-lg text-center transition-all flex items-center justify-center gap-2"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                      </svg>
+                      Dettagli
+                    </Link>
                   </div>
                 </div>
               ))}
@@ -258,7 +201,7 @@ const ProjectsPage = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center p-6 bg-gradient-to-br from-purple-950/50 to-black border border-purple-900/30 rounded-2xl">
-              <div className="text-4xl md:text-5xl font-bold text-purple-400 mb-2">{projects.length}+</div>
+              <div className="text-4xl md:text-5xl font-bold text-purple-400 mb-2">{projects.length}</div>
               <div className="text-gray-400">Progetti Totali</div>
             </div>
             <div className="text-center p-6 bg-gradient-to-br from-purple-950/50 to-black border border-purple-900/30 rounded-2xl">
