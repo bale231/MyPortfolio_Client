@@ -92,13 +92,13 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage = 'home' }) => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`md:hidden fixed inset-0 top-[73px] bg-black/95 backdrop-blur-md z-40 transition-all duration-300 ease-in-out ${
+        className={`md:hidden fixed inset-0 top-[73px] bg-black z-40 transition-all duration-300 ease-in-out ${
           isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`}
         onClick={closeMenu}
       >
         <div
-          className={`flex flex-col gap-2 p-6 transition-all duration-300 ease-out ${
+          className={`flex flex-col gap-2 p-6 bg-black transition-all duration-300 ease-out ${
             isMenuOpen ? 'translate-y-0' : '-translate-y-4'
           }`}
           onClick={(e) => e.stopPropagation()}
