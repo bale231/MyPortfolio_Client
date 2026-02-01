@@ -163,6 +163,42 @@ const PortfolioHomepage = () => {
 
   return (
     <div ref={heroRef} className="min-h-screen bg-black text-white">
+      {/* JSON-LD Schema per SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Luigi Balestrucci",
+            "url": "https://luigibalestrucci.vercel.app",
+            "image": "https://luigibalestrucci.vercel.app/images/images-profile.png",
+            "jobTitle": "Full Stack Developer",
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Freelance"
+            },
+            "description": "Full Stack Developer specializzato in React, Next.js, TypeScript e AI",
+            "sameAs": [
+              "https://github.com/bale231",
+              "https://linkedin.com/in/luigi-balestrucci",
+              "https://instagram.com/luigi_bale"
+            ],
+            "knowsAbout": [
+              "React",
+              "Next.js",
+              "TypeScript",
+              "JavaScript",
+              "Node.js",
+              "MongoDB",
+              "PostgreSQL",
+              "TailwindCSS",
+              "AI Integration",
+              "Full Stack Development"
+            ]
+          })
+        }}
+      />
       <style jsx>{`
         .cursor {
           display: inline-block;
