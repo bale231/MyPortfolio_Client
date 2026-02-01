@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 interface NavbarProps {
@@ -9,6 +9,18 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ currentPage = 'home' }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Lock body scroll when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -76,28 +88,38 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage = 'home' }) => {
           </button>
         </div>
 
-        {/* Mobile Menu Dropdown */}
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      <div
+        className={`md:hidden fixed inset-0 top-[73px] bg-black/95 backdrop-blur-md z-40 transition-all duration-300 ease-in-out ${
+          isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+        }`}
+        onClick={closeMenu}
+      >
         <div
-          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-            isMenuOpen ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'
+          className={`flex flex-col gap-2 p-6 transition-all duration-300 ease-out ${
+            isMenuOpen ? 'translate-y-0' : '-translate-y-4'
           }`}
+          onClick={(e) => e.stopPropagation()}
         >
-          <div className="flex flex-col gap-4 py-4 border-t border-purple-900/30">
-            {navLinks.map((link) => (
-              <Link
-                key={link.page}
-                href={link.href}
-                onClick={closeMenu}
-                className={`px-4 py-2 rounded-lg transition-all ${
-                  currentPage === link.page
-                    ? 'bg-purple-600 text-white'
-                    : 'text-gray-300 hover:bg-purple-600/20 hover:text-purple-400'
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
+          {navLinks.map((link, index) => (
+            <Link
+              key={link.page}
+              href={link.href}
+              onClick={closeMenu}
+              className={`px-6 py-4 rounded-xl text-lg font-medium transition-all duration-200 ${
+                currentPage === link.page
+                  ? 'bg-purple-600 text-white shadow-lg shadow-purple-500/30'
+                  : 'text-gray-300 hover:bg-purple-600/20 hover:text-purple-400 border border-purple-900/30'
+              }`}
+              style={{
+                transitionDelay: isMenuOpen ? `${index * 50}ms` : '0ms'
+              }}
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
       </div>
     </nav>
