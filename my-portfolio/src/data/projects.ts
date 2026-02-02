@@ -83,9 +83,9 @@ L'esperienza ci ha messo alla prova e ha rappresentato un'opportunità preziosa 
       'Risoluzione problemi tecnici con Porto theme'
     ],
     images: [
-      { src: '🎨', alt: 'irisColor Homepage', caption: 'Homepage con design moderno e colorato' },
-      { src: '🖌️', alt: 'Prodotti', caption: 'Catalogo prodotti con griglia responsive' },
-      { src: '📧', alt: 'Contatti', caption: 'Pagina contatti aziendale' },
+      { src: '../../public/images/HomePage-IrisColor.png', alt: 'irisColor Homepage', caption: 'Homepage con design moderno e colorato' },
+      { src: '../../public/images/video-iriscolor.gif', alt: 'Prodotti', caption: 'Catalogo prodotti con griglia responsive' },
+      { src: '../../public/images/contacts-iriscolor.png', alt: 'Contatti', caption: 'Pagina contatti aziendale' },
     ],
     challenges: "Le difficoltà tecniche con il tema Porto hanno richiesto interventi manuali in HTML, CSS e JavaScript per adattare il design alle esigenze del cliente.",
     learnings: "Ho approfondito l'uso avanzato di WordPress e WooCommerce, e ho migliorato le mie competenze nel lavoro di squadra e nella gestione di progetti collaborativi."
