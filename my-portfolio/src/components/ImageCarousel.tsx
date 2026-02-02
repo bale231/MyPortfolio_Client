@@ -13,6 +13,21 @@ interface ImageCarouselProps {
   interval?: number;
 }
 
+// Helper function to normalize image paths
+const normalizeImagePath = (src: string): string => {
+  // Remove "public" prefix if present (Next.js serves public folder at root)
+  if (src.startsWith('public/')) {
+    return src.replace('public/', '/');
+  }
+  return src;
+};
+
+// Check if the src is an actual image path (not an emoji)
+const isImagePath = (src: string): boolean => {
+  const normalizedSrc = normalizeImagePath(src);
+  return normalizedSrc.startsWith('/') || normalizedSrc.startsWith('http');
+};
+
 const ImageCarousel: React.FC<ImageCarouselProps> = ({
   images,
   autoPlay = true,
@@ -72,12 +87,12 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
                   : 'opacity-0 translate-x-full'
             }`}
           >
-            {image.src.startsWith('/') || image.src.startsWith('http') ? (
+            {isImagePath(image.src) ? (
               <Image
-                src={image.src}
+                src={normalizeImagePath(image.src)}
                 alt={image.alt}
                 fill
-                className="object-cover"
+                className="object-contain"
                 priority={index === 0}
               />
             ) : (
@@ -156,9 +171,9 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
                   : 'border-transparent opacity-60 hover:opacity-100'
               }`}
             >
-              {image.src.startsWith('/') || image.src.startsWith('http') ? (
+              {isImagePath(image.src) ? (
                 <Image
-                  src={image.src}
+                  src={normalizeImagePath(image.src)}
                   alt={image.alt}
                   width={96}
                   height={64}

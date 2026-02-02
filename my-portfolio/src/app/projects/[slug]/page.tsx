@@ -40,16 +40,6 @@ const ProjectDetailPage = () => {
           start: 'top 80%',
         }
       });
-
-      // Tags animation
-      gsap.from('.tag-item', {
-        scale: 0,
-        opacity: 0,
-        duration: 0.3,
-        stagger: 0.05,
-        delay: 0.5,
-        ease: 'back.out(1.7)'
-      });
     }, pageRef);
 
     return () => ctx.revert();

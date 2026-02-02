@@ -18,29 +18,37 @@ Portfolio personale moderno e interattivo costruito con Next.js 15, TypeScript, 
 ```
 my-portfolio/
 ├── src/
-│   └── app/
-│       ├── about/          # Pagina About Me
-│       │   └── page.tsx
-│       ├── skills/         # Pagina Skills
-│       │   └── page.tsx
-│       ├── projects/       # Pagina Projects
-│       │   └── page.tsx
-│       ├── contact/        # Pagina Contact con form
-│       │   └── page.tsx
-│       ├── api/
-│       │   └── contact/    # API route per invio email
-│       │       └── route.ts
-│       ├── layout.tsx      # Layout principale
-│       └── page.tsx        # Home page
+│   ├── app/
+│   │   ├── about/              # Pagina About Me
+│   │   │   └── page.tsx
+│   │   ├── skills/             # Pagina Skills
+│   │   │   └── page.tsx
+│   │   ├── projects/           # Pagina Projects
+│   │   │   ├── [slug]/         # Pagine dinamiche singoli progetti
+│   │   │   │   └── page.tsx
+│   │   │   └── page.tsx
+│   │   ├── contact/            # Pagina Contact con form
+│   │   │   └── page.tsx
+│   │   ├── api/
+│   │   │   └── contact/        # API route per invio email
+│   │   │       └── route.ts
+│   │   ├── layout.tsx          # Layout principale
+│   │   └── page.tsx            # Home page
+│   ├── components/
+│   │   ├── Navbar.tsx          # Navbar con menu mobile
+│   │   └── ImageCarousel.tsx   # Carosello immagini progetti
+│   └── data/
+│       └── projects.ts         # Dati centralizzati progetti
 ├── public/
-│   └── images/             # Immagini e assets
-├── .env.example            # Template variabili d'ambiente
+│   └── images/                 # Immagini e assets
+│       └── projects/           # Screenshot progetti
+├── .env.example                # Template variabili d'ambiente
 └── package.json
 ```
 
 ## 🛠️ Tecnologie Utilizzate
 
-- **Framework**: Next.js 15.5.4
+- **Framework**: Next.js 16.1.6
 - **Language**: TypeScript
 - **Styling**: TailwindCSS 4
 - **Animations**: GSAP 3.13
@@ -121,10 +129,11 @@ npm run lint     # Esegue il linter
    - Aggiorna i livelli di skill
    - Modifica le categorie
 
-4. **Projects Page** (`src/app/projects/page.tsx`):
-   - Aggiungi i tuoi progetti
+4. **Projects Page** (`src/data/projects.ts`):
+   - Aggiungi/modifica i tuoi progetti nel file dati centralizzato
    - Aggiorna link GitHub e demo
    - Modifica categorie e filtri
+   - Ogni progetto ha una pagina dedicata con carosello screenshot
 
 5. **Contact Page** (`src/app/contact/page.tsx`):
    - Aggiorna email e contatti
@@ -133,6 +142,22 @@ npm run lint     # Esegue il linter
 ### Aggiorna l'immagine profilo
 
 Inserisci la tua foto in `public/images/images-profile.png`
+
+### Aggiungere screenshot ai progetti
+
+1. Crea la cartella `public/images/projects/` se non esiste
+2. Aggiungi le immagini dei tuoi progetti (es. `public/images/projects/todolist-1.png`)
+3. Nel file `src/data/projects.ts`, aggiorna l'array `images` del progetto:
+
+```typescript
+images: [
+  { src: '/images/projects/todolist-1.png', alt: 'Homepage', caption: 'Schermata principale' },
+  { src: '/images/projects/todolist-2.png', alt: 'Dashboard', caption: 'Dashboard utente' },
+  { src: '/images/projects/todolist-3.gif', alt: 'Demo', caption: 'Demo animata' },
+]
+```
+
+> **Importante**: I path devono iniziare con `/images/...` (senza "public"). Next.js serve automaticamente i file dalla cartella public.
 
 ### Modifica i colori
 
@@ -212,10 +237,16 @@ Assicurati di configurare:
 
 ### 🚀 Projects Page
 - Portfolio progetti con preview
-- Filtri per categoria (Full Stack, Frontend, Backend, AI)
+- Filtri per categoria (Full Stack, Frontend, Backend)
 - Link a GitHub e demo live
 - Badge "Featured" per progetti principali
 - Statistiche progetti
+- **Pagine dedicate per ogni progetto** con:
+  - Carosello screenshot interattivo
+  - Descrizione completa
+  - Tecnologie utilizzate
+  - Sfide affrontate e lezioni apprese
+  - Progetti correlati
 
 ### 📧 Contact Page
 - Form di contatto validato
