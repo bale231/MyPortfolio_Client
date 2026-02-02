@@ -101,7 +101,7 @@ Durante questa esperienza, ho lavorato su task rilevanti utilizzando React Nativ
 L'intero progetto si è svolto da remoto per una durata di circa un mese e mezzo. È stata un'esperienza altamente formativa che ha migliorato significativamente le mie capacità di problem solving e mi ha permesso di esplorare tecnologie e aspetti del lavoro su cui non avevo mai avuto occasione di lavorare in precedenza.`,
     period: 'Settembre 2024 - Ottobre 2024',
     role: 'React Developer',
-    image: '🎵',
+    image: '/images/esound-favicon.png',
     category: 'frontend',
     tags: ['React Native', 'React', 'Yarn', 'Git', 'Android Studio', 'JavaScript', 'CSS'],
     github: 'https://github.com/bale231/spicy-sparks-app',
