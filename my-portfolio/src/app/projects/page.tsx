@@ -4,10 +4,16 @@ import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Link from 'next/link';
+import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import { projects } from '@/data/projects';
 
 gsap.registerPlugin(ScrollTrigger);
+
+// Helper to check if image field is an actual image path
+const isImagePath = (src: string): boolean => {
+  return src.startsWith('/') || src.startsWith('http');
+};
 
 const ProjectsPage = () => {
   const heroRef = useRef(null);
@@ -122,8 +128,18 @@ const ProjectsPage = () => {
                   {/* Clickable Card Link */}
                   <Link href={`/projects/${project.slug}`} className="block">
                     {/* Image/Icon */}
-                    <div className="relative h-48 bg-gradient-to-br from-purple-900/40 to-black flex items-center justify-center text-8xl border-b border-purple-900/30">
-                      {project.image}
+                    <div className="relative h-48 bg-gradient-to-br from-purple-900/40 to-black flex items-center justify-center border-b border-purple-900/30">
+                      {isImagePath(project.image) ? (
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          width={120}
+                          height={120}
+                          className="object-contain"
+                        />
+                      ) : (
+                        <span className="text-8xl">{project.image}</span>
+                      )}
                       <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-all"></div>
                     </div>
 
