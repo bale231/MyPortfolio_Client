@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useParams, notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Navbar from '@/components/Navbar';
@@ -10,6 +11,11 @@ import ImageCarousel from '@/components/ImageCarousel';
 import { getProjectBySlug, projects } from '@/data/projects';
 
 gsap.registerPlugin(ScrollTrigger);
+
+// Helper to check if image field is an actual image path
+const isImagePath = (src: string): boolean => {
+  return src.startsWith('/') || src.startsWith('http');
+};
 
 const ProjectDetailPage = () => {
   const params = useParams();
@@ -75,8 +81,18 @@ const ProjectDetailPage = () => {
           {/* Project Header */}
           <div className="flex flex-col lg:flex-row gap-8 items-start">
             {/* Project Icon */}
-            <div className="text-8xl lg:text-9xl bg-gradient-to-br from-purple-900/40 to-black p-8 rounded-2xl border border-purple-900/30">
-              {project.image}
+            <div className="bg-gradient-to-br from-purple-900/40 to-black p-8 rounded-2xl border border-purple-900/30 flex items-center justify-center">
+              {isImagePath(project.image) ? (
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  width={150}
+                  height={150}
+                  className="object-contain"
+                />
+              ) : (
+                <span className="text-8xl lg:text-9xl">{project.image}</span>
+              )}
             </div>
 
             {/* Project Info */}
@@ -248,8 +264,18 @@ const ProjectDetailPage = () => {
                   href={`/projects/${relProject.slug}`}
                   className="group bg-gradient-to-br from-purple-950/50 to-black border border-purple-900/30 rounded-2xl overflow-hidden hover:border-purple-500/50 transition-all hover:scale-105"
                 >
-                  <div className="h-32 bg-gradient-to-br from-purple-900/40 to-black flex items-center justify-center text-6xl">
-                    {relProject.image}
+                  <div className="h-32 bg-gradient-to-br from-purple-900/40 to-black flex items-center justify-center">
+                    {isImagePath(relProject.image) ? (
+                      <Image
+                        src={relProject.image}
+                        alt={relProject.title}
+                        width={80}
+                        height={80}
+                        className="object-contain"
+                      />
+                    ) : (
+                      <span className="text-6xl">{relProject.image}</span>
+                    )}
                   </div>
                   <div className="p-4">
                     <h3 className="font-bold text-white group-hover:text-purple-300 transition-colors mb-2">
