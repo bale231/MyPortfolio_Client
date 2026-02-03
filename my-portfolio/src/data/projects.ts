@@ -170,8 +170,8 @@ L'integrazione con OpenAI permette il riconoscimento intelligente dei capi d'abb
     image: '👕',
     category: 'backend',
     tags: ['Docker', 'OpenAI', 'Claude Code', 'PostgreSQL', 'MongoDB', 'Django', 'Node.js'],
-    github: 'https://github.com/Mixout-App/Mixout-Server',
-    demo: 'https://mixout.ai/auth/',
+    github: '#',
+    demo: 'https://mixout.ai',
     featured: true,
     highlights: [
       'Integrazione API OpenAI per AI-Scan',
@@ -188,38 +188,6 @@ L'integrazione con OpenAI permette il riconoscimento intelligente dei capi d'abb
     challenges: "Integrare efficacemente l'API OpenAI per il riconoscimento delle immagini e gestire due database diversi (PostgreSQL e MongoDB) nella stessa applicazione.",
     learnings: "Ho approfondito l'uso di Docker per la containerizzazione e l'integrazione di servizi AI in applicazioni backend."
   },
-  {
-    slug: 'portfolio-generator',
-    title: 'Portfolio Generator',
-    shortDescription: 'Tool per generare portfolio automaticamente partendo da template personalizzabili.',
-    fullDescription: `Portfolio Generator è un tool innovativo che permette di generare portfolio professionali in modo automatico partendo da template personalizzabili.
-
-Sviluppato con React e TailwindCSS, offre un'interfaccia intuitiva per configurare il proprio portfolio senza dover scrivere codice.
-
-Il progetto utilizza Vite come bundler per garantire performance ottimali durante lo sviluppo.`,
-    period: '2024',
-    role: 'Frontend Developer',
-    image: '🎨',
-    category: 'frontend',
-    tags: ['React', 'TailwindCSS', 'Vite', 'JavaScript'],
-    github: 'https://github.com/bale231',
-    demo: '#',
-    featured: false,
-    highlights: [
-      'Generazione automatica portfolio',
-      'Template personalizzabili',
-      'Interfaccia user-friendly',
-      'Performance ottimizzate con Vite',
-      'Design responsive'
-    ],
-    images: [
-      { src: '🎨', alt: 'Portfolio Generator', caption: 'Interfaccia principale del generatore' },
-      { src: '🖼️', alt: 'Templates', caption: 'Selezione template disponibili' },
-      { src: '⚙️', alt: 'Customization', caption: 'Opzioni di personalizzazione' },
-    ],
-    challenges: "Creare un sistema di templating flessibile che permetta personalizzazioni mantenendo la semplicità d'uso.",
-    learnings: "Ho approfondito la creazione di strumenti generativi e l'importanza della user experience nel design di applicazioni."
-  }
 ];
 
 export const getProjectBySlug = (slug: string): Project | undefined => {
