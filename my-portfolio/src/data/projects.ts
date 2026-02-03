@@ -135,7 +135,7 @@ L'esperienza ha dimostrato l'efficacia dell'approccio collaborativo e la crescit
 È stato il primo progetto importante durante il corso Develhope, dove abbiamo imparato le basi dello sviluppo web e del lavoro di squadra.`,
     period: 'Gennaio 2024 - Febbraio 2024',
     role: 'Frontend Developer & Team Leader (rotazione)',
-    image: '/images/ea-icon.png',
+    image: '/images/ea-icon.svg',
     category: 'frontend',
     tags: ['HTML', 'CSS', 'JavaScript', 'Trello'],
     github: 'https://github.com/Francesca-Bonato/Electonic-Arts-clone-project',
