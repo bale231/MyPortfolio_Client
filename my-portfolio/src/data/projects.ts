@@ -103,7 +103,7 @@ Come competenze abbiamo assimilato lo Sviluppo front-end/back-end, gestione atti
 Conclusione: Esperienza preziosa con acquisizione di nuove competenze e creazione di un prodotto utile.`,
     period: 'Aprile 2024 - Giugno 2024',
     role: 'Full Stack Developer (Team)',
-    image: '🚴',
+    image: '/images/logo bycycle round.ico',
     category: 'fullstack',
     tags: ['React.js', 'Tailwind CSS', 'Node.js', 'Express', 'MySQL', 'JavaScript', 'SCSS', 'Trello', 'Agile'],
     github: 'https://github.com/Francesca-Bonato/ByCycle-project',
