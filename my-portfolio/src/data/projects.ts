@@ -167,7 +167,7 @@ Il backend è stato sviluppato utilizzando tecnologie moderne come Docker, OpenA
 L'integrazione con OpenAI permette il riconoscimento intelligente dei capi d'abbigliamento e suggerimenti personalizzati per la creazione di outfit.`,
     period: '2024',
     role: 'Backend Developer',
-    image: '👕',
+    image: '/images/mixout-icon.png',
     category: 'backend',
     tags: ['Docker', 'OpenAI', 'Claude Code', 'PostgreSQL', 'MongoDB', 'Django', 'Node.js'],
     github: '#',
