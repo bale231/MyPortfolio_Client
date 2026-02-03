@@ -69,7 +69,7 @@ Abbiamo anche creato e implementato shortcode personalizzati per rendere alcuni 
 L'esperienza ci ha messo alla prova e ha rappresentato un'opportunità preziosa per approfondire l'uso avanzato di WordPress, il tutto in un contesto stimolante e collaborativo.`,
     period: 'Novembre 2024 - Dicembre 2024',
     role: 'WordPress Developer (Team)',
-    image: '/images/iriscolor-favicon.png',
+    image: '🎨',
     category: 'frontend',
     tags: ['WordPress', 'WPBakery', 'Porto Theme', 'HTML', 'CSS', 'JavaScript', 'WooCommerce', 'Shortcode'],
     github: '#',
