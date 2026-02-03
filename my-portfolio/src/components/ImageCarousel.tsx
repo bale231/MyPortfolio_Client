@@ -307,7 +307,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
       {/* Lightbox Modal */}
       {lightboxOpen && isImagePath(currentImage?.src) && (
         <div
-          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
+          className="fixed inset-0 z-[9999] bg-black flex items-center justify-center"
           onClick={(e) => {
             if (e.target === e.currentTarget && zoomLevel === 1) closeLightbox();
           }}
@@ -315,7 +315,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
           {/* Close button */}
           <button
             onClick={closeLightbox}
-            className="absolute top-4 right-4 z-50 w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all"
+            className="absolute top-4 right-4 z-[10000] w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all"
             aria-label="Chiudi"
           >
             <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -324,7 +324,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
           </button>
 
           {/* Zoom controls */}
-          <div className="absolute top-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2 bg-black/60 rounded-full px-4 py-2">
+          <div className="absolute top-4 left-1/2 -translate-x-1/2 z-[10000] flex items-center gap-2 bg-black/60 rounded-full px-4 py-2">
             <button
               onClick={handleZoomOut}
               disabled={zoomLevel <= 1}
@@ -349,7 +349,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
           </div>
 
           {/* Image counter */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-50 bg-black/60 px-4 py-2 rounded-full text-white">
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-[10000] bg-black/60 px-4 py-2 rounded-full text-white">
             {currentIndex + 1} / {images.length}
           </div>
 
@@ -362,7 +362,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
                   setZoomLevel(1);
                   setPanPosition({ x: 0, y: 0 });
                 }}
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-14 h-14 bg-white/10 hover:bg-purple-600/80 rounded-full flex items-center justify-center transition-all z-50"
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-14 h-14 bg-white/10 hover:bg-purple-600/80 rounded-full flex items-center justify-center transition-all z-[10000]"
                 aria-label="Immagine precedente"
               >
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -375,7 +375,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
                   setZoomLevel(1);
                   setPanPosition({ x: 0, y: 0 });
                 }}
-                className="absolute right-4 top-1/2 -translate-y-1/2 w-14 h-14 bg-white/10 hover:bg-purple-600/80 rounded-full flex items-center justify-center transition-all z-50"
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-14 h-14 bg-white/10 hover:bg-purple-600/80 rounded-full flex items-center justify-center transition-all z-[10000]"
                 aria-label="Immagine successiva"
               >
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
