@@ -51,7 +51,7 @@ Questo progetto è stato un esperimento per testare le potenzialità dell'AI nel
     images: [
       { src: '/images/schermataprincipale-webapp.png', alt: 'ToDo App Home', caption: 'Schermata principale con lista attività' },
       { src: '/images/gestionetask-filtri.png', alt: 'ToDo App Tasks', caption: 'Gestione delle task con filtri' },
-      { src: '⚙️', alt: '/images/settaggi-utente.png', caption: 'Pagina impostazioni utente' },
+      { src: '/images/settaggi-utente.png', alt: 'ToDo App Settings', caption: 'Pagina impostazioni utente' },
     ],
     challenges: "La sfida principale è stata integrare l'autenticazione JWT tra frontend e backend, gestendo correttamente i token refresh e l'invalidazione delle sessioni.",
     learnings: "Ho appreso come strutturare un'applicazione PWA completa e come l'AI può accelerare significativamente lo sviluppo software mantenendo alta la qualità del codice."
