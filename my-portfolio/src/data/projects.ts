@@ -149,9 +149,7 @@ L'esperienza ha dimostrato l'efficacia dell'approccio collaborativo e la crescit
       'Fondamenta sviluppo web'
     ],
     images: [
-      { src: '🎮', alt: 'EA Clone Home', caption: 'Homepage clone Electronic Arts' },
-      { src: '🕹️', alt: 'Games Section', caption: 'Sezione giochi con carousel' },
-      { src: '📰', alt: 'News Section', caption: 'Sezione news e aggiornamenti' },
+      { src: '/images/homepage-ea.png', alt: 'EA Clone Home', caption: 'Homepage clone Electronic Arts' },
     ],
     challenges: "Replicare fedelmente il design responsive della homepage EA con le conoscenze base di HTML, CSS e JavaScript.",
     learnings: "Ho acquisito le fondamenta dello sviluppo web frontend e l'importanza del lavoro collaborativo con rotazione dei ruoli."
