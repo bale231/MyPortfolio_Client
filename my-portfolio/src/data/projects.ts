@@ -91,38 +91,6 @@ L'esperienza ci ha messo alla prova e ha rappresentato un'opportunità preziosa 
     learnings: "Ho approfondito l'uso avanzato di WordPress e WooCommerce, e ho migliorato le mie competenze nel lavoro di squadra e nella gestione di progetti collaborativi."
   },
   {
-    slug: 'spicysparks-esound',
-    title: 'SpicySparks - eSound Music',
-    shortDescription: "Collaborazione come React Developer per lo sviluppo dell'app eSound Music.",
-    fullDescription: `Ho avuto l'opportunità di collaborare come React Developer presso SpicySparks, contribuendo allo sviluppo della loro applicazione principale, eSound Music.
-
-Durante questa esperienza, ho lavorato su task rilevanti utilizzando React Native, React, Yarn e Git per il versioning. Per lo sviluppo mobile, ho utilizzato Android Studio e ho avuto modo di approfondire i moduli nativi.
-
-L'intero progetto si è svolto da remoto per una durata di circa un mese e mezzo. È stata un'esperienza altamente formativa che ha migliorato significativamente le mie capacità di problem solving e mi ha permesso di esplorare tecnologie e aspetti del lavoro su cui non avevo mai avuto occasione di lavorare in precedenza.`,
-    period: 'Settembre 2024 - Ottobre 2024',
-    role: 'React Developer',
-    image: '/images/esound-favicon.png',
-    category: 'frontend',
-    tags: ['React Native', 'React', 'Yarn', 'Git', 'Android Studio', 'JavaScript', 'CSS'],
-    github: 'https://github.com/bale231/spicy-sparks-app',
-    demo: '#',
-    featured: true,
-    highlights: [
-      'Sviluppo app mobile con React Native',
-      'Lavoro in team da remoto',
-      'Utilizzo di Android Studio per sviluppo mobile',
-      'Approfondimento moduli nativi',
-      'Esperienza professionale in azienda'
-    ],
-    images: [
-      { src: '🎵', alt: 'eSound Music App', caption: 'Interfaccia principale player musicale' },
-      { src: '📱', alt: 'Mobile App', caption: 'Design responsive per dispositivi mobili' },
-      { src: '🎧', alt: 'Playlist', caption: 'Gestione playlist e brani' },
-    ],
-    challenges: "Lavorare su un'applicazione già esistente con una codebase ampia ha richiesto un rapido adattamento e comprensione dell'architettura del progetto.",
-    learnings: "Ho acquisito esperienza preziosa nello sviluppo mobile con React Native e nel lavoro collaborativo in un team professionale distribuito."
-  },
-  {
     slug: 'bycycle-forum',
     title: 'ByCycle Forum',
     shortDescription: 'Piattaforma forum online per amanti delle biciclette, progetto finale del corso.',
