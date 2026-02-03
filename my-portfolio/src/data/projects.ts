@@ -117,9 +117,9 @@ Conclusione: Esperienza preziosa con acquisizione di nuove competenze e creazion
       'Lavoro di squadra efficace'
     ],
     images: [
-      { src: '🚴', alt: 'ByCycle Home', caption: 'Homepage del forum' },
-      { src: '💬', alt: 'Forum Threads', caption: 'Lista discussioni del forum' },
-      { src: '👤', alt: 'User Profile', caption: 'Profilo utente con statistiche' },
+      { src: '/images/homepage-bycycle.png', alt: 'ByCycle Home', caption: 'Homepage del forum' },
+      { src: '/images/community-bycycle.png', alt: 'Forum Threads', caption: 'Discussioni della community' },
+      { src: '/images/settingsprofile-bycycle.png', alt: 'User Profile', caption: 'Profilo utente con immagine e modifica dati' },
     ],
     challenges: "Gestire la sincronizzazione tra team members e mantenere la consistenza del codice durante lo sviluppo parallelo.",
     learnings: "Ho appreso l'importanza della metodologia Agile e come Trello può facilitare la gestione di progetti collaborativi."
