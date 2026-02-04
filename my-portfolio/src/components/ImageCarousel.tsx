@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import Image from 'next/image';
 
 interface ImageCarouselProps {
@@ -39,6 +40,12 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
   const [panPosition, setPanPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
+  const [isMounted, setIsMounted] = useState(false);
+
+  // For client-side portal rendering
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const goToNext = useCallback(() => {
     if (isAnimating || images.length <= 1) return;
@@ -304,8 +311,8 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
         )}
       </div>
 
-      {/* Lightbox Modal */}
-      {lightboxOpen && isImagePath(currentImage?.src) && (
+      {/* Lightbox Modal - rendered via Portal to avoid stacking context issues */}
+      {isMounted && lightboxOpen && isImagePath(currentImage?.src) && createPortal(
         <div
           className="fixed inset-0 z-[9999] bg-black flex items-center justify-center"
           onClick={(e) => {
@@ -423,7 +430,8 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
           <div className="absolute bottom-4 right-4 text-gray-500 text-xs hidden md:block">
             ESC chiudi · ← → naviga · +/- zoom
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
