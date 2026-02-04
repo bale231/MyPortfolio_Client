@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import Image from 'next/image';
+import { gsap } from 'gsap';
 
 interface ImageCarouselProps {
   images: {
@@ -41,11 +42,36 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
   const [isMounted, setIsMounted] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
+
+  // Refs for GSAP animations
+  const lightboxRef = useRef<HTMLDivElement>(null);
+  const lightboxContentRef = useRef<HTMLDivElement>(null);
 
   // For client-side portal rendering
   useEffect(() => {
     setIsMounted(true);
   }, []);
+
+  // GSAP animation on lightbox open
+  useEffect(() => {
+    if (lightboxOpen && !isClosing && lightboxRef.current && lightboxContentRef.current) {
+      const tl = gsap.timeline();
+
+      // Animate backdrop
+      tl.fromTo(lightboxRef.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.3, ease: 'power2.out' }
+      );
+
+      // Animate content with scale and fade
+      tl.fromTo(lightboxContentRef.current,
+        { scale: 0.8, opacity: 0, y: 30 },
+        { scale: 1, opacity: 1, y: 0, duration: 0.4, ease: 'back.out(1.7)' },
+        '-=0.2'
+      );
+    }
+  }, [lightboxOpen, isClosing]);
 
   const goToNext = useCallback(() => {
     if (isAnimating || images.length <= 1) return;
@@ -77,12 +103,43 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
     document.body.style.overflow = 'hidden';
   };
 
-  const closeLightbox = () => {
-    setLightboxOpen(false);
-    setZoomLevel(1);
-    setPanPosition({ x: 0, y: 0 });
-    document.body.style.overflow = 'unset';
-  };
+  const closeLightbox = useCallback(() => {
+    if (isClosing) return;
+
+    if (lightboxRef.current && lightboxContentRef.current) {
+      setIsClosing(true);
+      const tl = gsap.timeline({
+        onComplete: () => {
+          setLightboxOpen(false);
+          setIsClosing(false);
+          setZoomLevel(1);
+          setPanPosition({ x: 0, y: 0 });
+          document.body.style.overflow = 'unset';
+        }
+      });
+
+      // Animate content out
+      tl.to(lightboxContentRef.current, {
+        scale: 0.8,
+        opacity: 0,
+        y: 30,
+        duration: 0.3,
+        ease: 'power2.in'
+      });
+
+      // Animate backdrop out
+      tl.to(lightboxRef.current, {
+        opacity: 0,
+        duration: 0.2,
+        ease: 'power2.in'
+      }, '-=0.15');
+    } else {
+      setLightboxOpen(false);
+      setZoomLevel(1);
+      setPanPosition({ x: 0, y: 0 });
+      document.body.style.overflow = 'unset';
+    }
+  }, [isClosing]);
 
   const toggleZoom = () => {
     if (zoomLevel === 1) {
@@ -124,6 +181,31 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
   };
 
   const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  // Touch handlers for mobile pan
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (zoomLevel > 1 && e.touches.length === 1) {
+      setIsDragging(true);
+      setDragStart({
+        x: e.touches[0].clientX - panPosition.x,
+        y: e.touches[0].clientY - panPosition.y
+      });
+    }
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (isDragging && zoomLevel > 1 && e.touches.length === 1) {
+      e.preventDefault();
+      setPanPosition({
+        x: e.touches[0].clientX - dragStart.x,
+        y: e.touches[0].clientY - dragStart.y
+      });
+    }
+  };
+
+  const handleTouchEnd = () => {
     setIsDragging(false);
   };
 
@@ -314,9 +396,10 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
       {/* Lightbox Modal - rendered via Portal to avoid stacking context issues */}
       {isMounted && lightboxOpen && isImagePath(currentImage?.src) && createPortal(
         <div
+          ref={lightboxRef}
           className="fixed inset-0 z-[9999] bg-black flex items-center justify-center"
           onClick={(e) => {
-            if (e.target === e.currentTarget && zoomLevel === 1) closeLightbox();
+            if (e.target === e.currentTarget && zoomLevel === 1 && !isClosing) closeLightbox();
           }}
         >
           {/* Close button */}
@@ -394,17 +477,22 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
 
           {/* Zoomable Image */}
           <div
+            ref={lightboxContentRef}
             className={`relative max-w-[90vw] max-h-[80vh] overflow-hidden ${zoomLevel > 1 ? 'cursor-grab active:cursor-grabbing' : 'cursor-zoom-in'}`}
             onClick={zoomLevel === 1 ? toggleZoom : undefined}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseUp}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
           >
             <div
               style={{
                 transform: `scale(${zoomLevel}) translate(${panPosition.x / zoomLevel}px, ${panPosition.y / zoomLevel}px)`,
-                transition: isDragging ? 'none' : 'transform 0.3s ease-out'
+                transition: isDragging ? 'none' : 'transform 0.3s ease-out',
+                touchAction: zoomLevel > 1 ? 'none' : 'auto'
               }}
             >
               <Image
